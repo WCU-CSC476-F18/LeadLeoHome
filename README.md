@@ -37,9 +37,9 @@ Levels:
   Control will pick Leo up for endangering the people on the Highway. Make it across though, and Leo will return home
   safe and sound!
   
-----  
+-----
 UI:
-----
+-----
 A timer will display to the player how long the overall run has been, as well as the time it took to complete
 each previous level. Sample UI is as follows:
 -----------------------------------------------------------------------------------------------------------
