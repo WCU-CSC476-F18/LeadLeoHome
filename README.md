@@ -43,7 +43,7 @@ UI:
 A timer will display to the player how long the overall run has been, as well as the time it took to complete
 each previous level. Sample UI is as follows:
 -----------------------------------------------------------------------------------------------------------
-The Woods: 2:53.22    The Fields: 1:00.00    The River: ---    The Highway: ---       Running Time: 3:53.22
+The Woods: 2:53.22 || The Fields: 1:00.00 || The River: -:--.-- || The Highway: -:--.-- || Running Time: 3:53.22
 -----------------------------------------------------------------------------------------------------------
 In this case the player is on level 2 and is 1 minute into their attempt to complete it.
 
