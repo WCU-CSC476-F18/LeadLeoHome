@@ -20,7 +20,7 @@ public class StartScene : MonoBehaviour
 
     void StartGame()
     {
-        SceneManager.LoadScene("_The_Woods_Scene");
+        SceneManager.LoadScene("_Game_Scene");
     }
     void Info()
     {
