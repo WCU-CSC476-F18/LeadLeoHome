@@ -9,7 +9,7 @@ Leo to the pound. Therefore you must try to complete each level as fast as you c
 ----------
 Controls:
 ----------
-WASD or up,down,left,right to control Leo the dog.
+WASD or up, down, left, right to control Leo the dog.
 
 --------
 Levels:
