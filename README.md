@@ -1,4 +1,6 @@
+=================
 "Lead Leo Home"
+=================
 
 Game Development final project for CSC476. Lead Leo home is a complex game that involves different level
 patterns and character interactions. There are 4 levels that the player must guide Leo the dog through.
