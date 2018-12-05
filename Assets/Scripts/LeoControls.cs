@@ -23,22 +23,39 @@ public class LeoControls : MonoBehaviour {
         movement.x = moveX;
         movement.y = moveY;
         rb.velocity = movement*speed;
-        if (Input.GetAxis("Horizontal") < 0)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.eulerAngles = new Vector3(0, 0, 90);
         }
-        if (Input.GetAxis("Horizontal") > 0)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.eulerAngles = new Vector3(0, 0, -90);
         }
-        if (Input.GetAxis("Vertical") < 0)
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.eulerAngles = new Vector3(0, 0, 180);
         }
-        if (Input.GetAxis("Vertical") > 0)
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
+        if(Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.eulerAngles = new Vector3(0, 0, 135);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.eulerAngles = new Vector3(0, 0, 45);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.eulerAngles = new Vector3(0, 0, -135);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.eulerAngles = new Vector3(0, 0, -45);
+        }
+
         //transform.rotation = Quaternion.Slerp(Quaternion.LookRotation(movement), transform.rotation, 0.15F);
         /*
         bool flipSpriteX = (spriteRenderer.flipX ? (movement.x > 0.01f) : (movement.x < 0.01f));

@@ -15,5 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/_Info_Scene_Page2.unity
     guid: 18395b9f657554646b305002f733e24b
   - enabled: 1
-    path: Assets/Scenes/_The_Woods_Scene.unity
-    guid: 8fc819149bd8a6a4db2a3065b034e2ba
+    path: Assets/Scenes/_Game_Scene.unity
+    guid: feebe835b1174524d85ddafce7259b37
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
