@@ -79,7 +79,6 @@ public class LeoControls : MonoBehaviour {
             {
                 isTriggered = true;//set this to true so that the trigger isnt activated more than once
                 woodsLevel++;
-                Debug.Log(woodsLevel);
                 WoodsLevelHandler(woodsLevel);
             }
             //if leo picked the wrong path--set back to area 1
