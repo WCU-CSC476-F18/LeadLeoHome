@@ -133,7 +133,7 @@ public class LeoControls : MonoBehaviour {
                 break;
             case 8:
                 //teleport to level 2 - the river
-                rb.transform.position = new Vector3(0.0f, 0.0f, -1.0f);
+                rb.transform.position = new Vector3(60.0f, 0.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
         }

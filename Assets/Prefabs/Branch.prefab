@@ -35,7 +35,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4453679665322286}
   - component: {fileID: 33582893885959852}
-  - component: {fileID: 136442066011889046}
   - component: {fileID: 23293592002542818}
   m_Layer: 0
   m_Name: Capsule (3)
@@ -53,7 +52,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4360546465800802}
   - component: {fileID: 33468048684384464}
-  - component: {fileID: 136401480425482270}
   - component: {fileID: 23936802361719506}
   m_Layer: 0
   m_Name: Capsule (2)
@@ -71,7 +69,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4515991052437788}
   - component: {fileID: 33135727861860184}
-  - component: {fileID: 136838614032831812}
   - component: {fileID: 23229898664641106}
   m_Layer: 0
   m_Name: Capsule
@@ -89,7 +86,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4574124800849994}
   - component: {fileID: 33512009198281356}
-  - component: {fileID: 136858151588605008}
   - component: {fileID: 23915509807443014}
   m_Layer: 0
   m_Name: Capsule (1)
@@ -331,55 +327,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324645374274708}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &136401480425482270
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1794070988162336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136442066011889046
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1324645374274708}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136838614032831812
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1899097142970326}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136858151588605008
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1908114835956662}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

@@ -1205,7 +1205,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2.4999962, y: -142}
-  m_SizeDelta: {x: 777, y: 255}
+  m_SizeDelta: {x: 774.24, y: 255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &412576820
 MonoBehaviour:
@@ -1239,8 +1239,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Control Leo the dog using W,A,S,D. Make it through all 4 levels before Animal
-    Control comes and takes Leo to the pound!
+  m_Text: Control Leo the dog using the arrow keys. Make it through all 4 levels before
+    Animal Control comes and takes Leo to the pound!
 --- !u!222 &412576821
 CanvasRenderer:
   m_ObjectHideFlags: 0
