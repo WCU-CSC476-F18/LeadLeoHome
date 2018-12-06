@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LeoControls : MonoBehaviour {
 
+    //paw prints to leave the correct trail once found in woodslevel
+    public GameObject pp1, pp2, pp3, pp4, pp5, pp6;
     public float speed = 0.35f;
 
     private Rigidbody rb;
@@ -110,26 +112,32 @@ public class LeoControls : MonoBehaviour {
             case 2:
                 rb.transform.position = new Vector3(0.0f, 15.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
+                pp1.SetActive(true);//show paw prints for correct way found
                 break;
             case 3:
                 rb.transform.position = new Vector3(0.0f, 30.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
+                pp2.SetActive(true);//show paw prints for correct way found
                 break;
             case 4:
                 rb.transform.position = new Vector3(0.0f, 45.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
+                pp3.SetActive(true);//show paw prints for correct way found
                 break;
             case 5:
                 rb.transform.position = new Vector3(0.0f, 60.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
+                pp4.SetActive(true);//show paw prints for correct way found
                 break;
             case 6:
                 rb.transform.position = new Vector3(0.0f, 75.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
+                pp5.SetActive(true);//show paw prints for correct way found
                 break;
             case 7:
                 rb.transform.position = new Vector3(0.0f, 90.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
+                pp6.SetActive(true);//show paw prints for correct way found
                 break;
             case 8:
                 //teleport to level 2 - the river
