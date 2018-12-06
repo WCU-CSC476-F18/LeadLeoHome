@@ -66,7 +66,7 @@ public class LeoControls : MonoBehaviour {
 
 
     //variable to keep track of what tree area leo is currently in
-    private int woodsLevel = 1;
+    private int level = 1;
     //bool to make sure that the trigger doesnt fire more than once
     bool isTriggered = false;
 
@@ -78,15 +78,15 @@ public class LeoControls : MonoBehaviour {
             if (other.gameObject.CompareTag("Finish"))
             {
                 isTriggered = true;//set this to true so that the trigger isnt activated more than once
-                woodsLevel++;
-                WoodsLevelHandler(woodsLevel);
+                level++;
+                LevelHandler(level);
             }
             //if leo picked the wrong path--set back to area 1
             if (other.gameObject.CompareTag("Respawn"))
             {
                 isTriggered = true;//set this to true so that the trigger isnt activated more than once
-                woodsLevel = 1;
-                WoodsLevelHandler(woodsLevel);
+                level = 1;
+                LevelHandler(level);
             }
             //isTriggered = true;//set this to true so that the trigger isnt activated more than once
         }
@@ -97,8 +97,8 @@ public class LeoControls : MonoBehaviour {
         isTriggered = false;
     }
 
-    //handles where to "teleport" leo depending on the path choice
-    void WoodsLevelHandler(int level)
+    //handles where to "teleport" leo throughout the whole game
+    void LevelHandler(int level)
     {
         //there are 7 wooded areas
         switch (level)
@@ -133,8 +133,21 @@ public class LeoControls : MonoBehaviour {
                 break;
             case 8:
                 //teleport to level 2 - the river
-                rb.transform.position = new Vector3(60.0f, 0.0f, -1.0f);
+                rb.transform.position = new Vector3(47.0f, 0.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
+                break;
+            case 9:
+                //teleport to level 3 - the fields
+                rb.transform.position = new Vector3(90.0f, 0.0f, -1.0f);
+                rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
+                break;
+            case 10:
+                //teleport to level 4 - the highway
+                rb.transform.position = new Vector3(150.0f, 0.0f, -1.0f);
+                rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
+                break;
+            case 11:
+                //game over -- load game over scene??
                 break;
         }
     }
