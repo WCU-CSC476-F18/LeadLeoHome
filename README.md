@@ -23,24 +23,24 @@ Levels:
 2:The River
 -
   The next obstacle Leo faces is a wide river that will sweep him away if he tries to swim across.
-  The usual method to cross the river was by bridge, but the bridge is broken! A less conventional
-  method would be to hop across the stones to the other side, but there isnt a complete path! Using
+  The usual method to cross the river was by bridge, but the bridge is broken! Using
   his head, Leo must find sticks to pile up at the top of the River to make a dam-thus halting the flow
-  of the river. Find all 4 sticks hidden around the map, and carry them to the top of the river to dam it.
-  Completing this level leaves Leo at the edge of the highway, just across the ways from his home!
+  of the river. Find all 5 sticks hidden around the map, and carry them to the top of the river to dam it.
+  Completing this level leaves Leo at the edge of a giant field!
   
 3:The Fields
 -
   Here, Leo must navigate through the mazeway that is these tall-grass fields. Not only that, but
   small critters are roaming around that will distract Leo if he gets too close! Lead Leo through
-  the mazeway as fast as possible while avoiding critters to progress to The River.
+  the mazeway as fast as possible while avoiding critters to progress to the last obstacle between him and
+  home; The Highway!
   
 4:The Highway
 -
   Cars are zipping past left and right, so Leo must be careful crossing the road! The player has 3 lives to
-  maneuver Leo across the highway safely and finally return him home! Fail to make it across in 3 lives and Animal
-  Control will pick Leo up for endangering the people on the Highway. Make it across though, and Leo will return home
-  safe and sound!
+  maneuver Leo across the highway safely and finally return him home! Be careful though, the closer Leo gets
+  to home the faster the cars will go! Fail to make it across in 3 lives and Animal Control will pick Leo up
+  for endangering the people on the Highway. Make it across though, and Leo will return home safe and sound!
   
 -----
 UI:
