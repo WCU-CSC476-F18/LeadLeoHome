@@ -13,6 +13,7 @@ public class LeoControls : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         rb = GetComponent<Rigidbody>();
+        Physics.gravity = new Vector3(0.0f, 0.0f, 10.0f);
 	}
 	
 	// Update is called once per frame
@@ -20,7 +21,7 @@ public class LeoControls : MonoBehaviour {
         //get user input to make leo move
         float moveX = Input.GetAxis("Horizontal") * 15;
         float moveY = Input.GetAxis("Vertical") * 15;
-        Vector3 movement = new Vector3(moveX, 0.0f, moveY);
+        Vector3 movement = new Vector3(moveX, moveY, 0.0f);
         
         //add user input to Leo's velocity
         movement.x = moveX;
@@ -90,7 +91,14 @@ public class LeoControls : MonoBehaviour {
                 level = 1;
                 LevelHandler(level);
             }
-            //isTriggered = true;//set this to true so that the trigger isnt activated more than once
+            //if leo steps on the trigger to place a branch and dam the river in the level 2
+            if (other.gameObject.CompareTag("Dam"))
+            {
+                //handle finding out if he has a stick picked up. handle getting rid of that stick
+                //and damming the river(remove RiverPart#)
+                isTriggered = true;
+                Debug.Log("Dam");
+            }
         }
     }
 
@@ -146,7 +154,7 @@ public class LeoControls : MonoBehaviour {
                 break;
             case 9:
                 //teleport to level 3 - the fields
-                rb.transform.position = new Vector3(90.0f, 0.0f, -1.0f);
+                rb.transform.position = new Vector3(95.0f, 0.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
             case 10:
