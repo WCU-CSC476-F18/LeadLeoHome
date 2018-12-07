@@ -153,7 +153,6 @@ public class LeoControls : MonoBehaviour {
             //if leo picked the right path--progress to next area
             if (other.gameObject.CompareTag("Finish"))
             {
-                Debug.Log("level" + level);
                 isTriggered = true;//set this to true so that the trigger isnt activated more than once
                 level++;
                 LevelHandler(level);
@@ -310,7 +309,7 @@ public class LeoControls : MonoBehaviour {
 
                 isTriggered = false;//since leo technically never stepped off the teleporting trigger
 
-                rb.transform.position = new Vector3(180.0f, 0.0f, -1.0f);
+                rb.transform.position = new Vector3(166.0f, 0.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
 
