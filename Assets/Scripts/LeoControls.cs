@@ -6,14 +6,23 @@ public class LeoControls : MonoBehaviour {
 
     //paw prints to leave the correct trail once found in woodslevel
     public GameObject pp1, pp2, pp3, pp4, pp5, pp6;
-    public float speed = 0.35f;
+
+    //branches that leo must pick up in level 2--mouthBranch is the 
+    //branch that leo will be carrying in his mouth
+    public GameObject b1, b2, b3, b4, b5, mouthBranch;
+
+    //river parts that will be deleted with each branch
+    public GameObject r1, r2, r3, r4, r5;
+
+    //Leo's speed
+    public float speed = 0.4f;
 
     private Rigidbody rb;
 
 	// Use this for initialization
 	void Awake () {
         rb = GetComponent<Rigidbody>();
-        Physics.gravity = new Vector3(0.0f, 0.0f, 10.0f);
+        Physics.gravity = new Vector3(0.0f, 0.0f, 50.0f);
 	}
 	
 	// Update is called once per frame
@@ -70,6 +79,9 @@ public class LeoControls : MonoBehaviour {
 
     //variable to keep track of what tree area leo is currently in
     private int level = 1;
+    private int branch = 1;//keeps track of what branch leo is picking up
+    private int riverPart = 1;//keeps track of what part of the river to block
+
     //bool to make sure that the trigger doesnt fire more than once
     bool isTriggered = false;
 
@@ -84,6 +96,7 @@ public class LeoControls : MonoBehaviour {
                 level++;
                 LevelHandler(level);
             }
+
             //if leo picked the wrong path--set back to area 1
             if (other.gameObject.CompareTag("Respawn"))
             {
@@ -91,13 +104,55 @@ public class LeoControls : MonoBehaviour {
                 level = 1;
                 LevelHandler(level);
             }
-            //if leo steps on the trigger to place a branch and dam the river in the level 2
+
+            //if leo steps on the trigger to place a branch and dam the river
             if (other.gameObject.CompareTag("Dam"))
             {
-                //handle finding out if he has a stick picked up. handle getting rid of that stick
-                //and damming the river(remove RiverPart#)
                 isTriggered = true;
-                Debug.Log("Dam");
+                
+                //check if leo has a stick in his mouth--if not do nothing
+                if(mouthBranch.activeSelf == true)
+                {
+                    mouthBranch.SetActive(false);//if he does set it to false
+                    DamRiver(riverPart++);//dam the river
+                    
+                }
+                
+                
+            }
+
+            //if leo steps on a branch to pick it up. The level is designed that 
+            //the player must use one branch before they can find the next one.
+            //Therefore the iteration of "branch" variable takes place in the
+            //DamRiver() function--after the player has placed the branch.
+            if (other.gameObject.CompareTag("Branch"))
+            {
+                isTriggered = true;
+                //if leo steps on a branch pick it up
+                switch (branch)
+                {
+                    case 1:
+                        b1.SetActive(false);//make the branch that leo stepped on dissapear
+                        mouthBranch.SetActive(true);//make leo appear to have picked up that branch
+                        break;
+                    case 2:
+                        b2.SetActive(false);//make the branch that leo stepped on dissapear
+                        mouthBranch.SetActive(true);//make leo appear to have picked up that branch
+                        break;
+                    case 3:
+                        b3.SetActive(false);//make the branch that leo stepped on dissapear
+                        mouthBranch.SetActive(true);//make leo appear to have picked up that branch
+                        break;
+                    case 4:
+                        b4.SetActive(false);//make the branch that leo stepped on dissapear
+                        mouthBranch.SetActive(true);//make leo appear to have picked up that branch
+                        break;
+                    case 5:
+                        b5.SetActive(false);//make the branch that leo stepped on dissapear
+                        mouthBranch.SetActive(true);//make leo appear to have picked up that branch
+                        break;
+                }
+                branch++;//iterate so that leo can pick up the next branch
             }
         }
     }
@@ -149,22 +204,53 @@ public class LeoControls : MonoBehaviour {
                 break;
             case 8:
                 //teleport to level 2 - the river
+                isTriggered = false;//since leo technically never stepped off the teleporting trigger
                 rb.transform.position = new Vector3(47.0f, 0.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
             case 9:
                 //teleport to level 3 - the fields
+                isTriggered = false;//since leo technically never stepped off the teleporting trigger
                 rb.transform.position = new Vector3(95.0f, 0.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
             case 10:
                 //teleport to level 4 - the highway
+                isTriggered = false;//since leo technically never stepped off the teleporting trigger
                 rb.transform.position = new Vector3(150.0f, 0.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
             case 11:
+                isTriggered = false;//since leo technically never stepped off the teleporting trigger
                 //game over -- load game over scene??
+
                 break;
         }
+    }
+
+    void DamRiver(int riverPart)
+    {
+        //delete parts of the river as leo passes sticks
+        switch (riverPart)
+        {
+            case 1:
+                r1.SetActive(false);
+                break;
+            case 2:
+                r2.SetActive(false);
+                break;
+            case 3:
+                r3.SetActive(false);
+                break;
+            case 4:
+                r4.SetActive(false);
+                break;
+            case 5:
+                r5.SetActive(false);
+                break;
+            case 6:
+                break;
+        }
+
     }
 }

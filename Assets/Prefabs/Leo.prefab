@@ -302,7 +302,7 @@ Transform:
   m_GameObject: {fileID: 1121780036702636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4709038340126322}
   - {fileID: 4361961567162044}
@@ -1071,13 +1071,13 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121780036702636}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &65281550437584908
 BoxCollider:
@@ -1119,7 +1119,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80c5989b6b5d0740b025a3cf9f80360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  pp1: {fileID: 0}
+  pp2: {fileID: 0}
+  pp3: {fileID: 0}
+  pp4: {fileID: 0}
+  pp5: {fileID: 0}
+  pp6: {fileID: 0}
+  b1: {fileID: 0}
+  b2: {fileID: 0}
+  b3: {fileID: 0}
+  b4: {fileID: 0}
+  b5: {fileID: 0}
+  mouthBranch: {fileID: 0}
+  speed: 0.4
 --- !u!135 &135414252597613094
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1130,7 +1142,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.44
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136020642986546328
 CapsuleCollider:
