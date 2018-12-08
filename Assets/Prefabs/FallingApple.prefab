@@ -35,7 +35,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4501264334117006}
   - component: {fileID: 33146454900918136}
-  - component: {fileID: 135644629629459646}
   - component: {fileID: 23442200064562454}
   m_Layer: 9
   m_Name: DroppedApple
@@ -53,7 +52,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4281565816703082}
   - component: {fileID: 33224455108966972}
-  - component: {fileID: 136900464679447098}
   - component: {fileID: 23175847382153764}
   m_Layer: 9
   m_Name: Stem
@@ -185,28 +183,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486475700443680}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &135644629629459646
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1412574068216396}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136900464679447098
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1486475700443680}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}

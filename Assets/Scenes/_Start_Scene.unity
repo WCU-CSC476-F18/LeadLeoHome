@@ -6354,6 +6354,11 @@ Prefab:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 54082163524059696, guid: b26383a763de6444aae1136805b180cc,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114410673028152764, guid: b26383a763de6444aae1136805b180cc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b26383a763de6444aae1136805b180cc, type: 2}
