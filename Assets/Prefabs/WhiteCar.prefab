@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23298218717843684}
   m_Layer: 0
   m_Name: BackTires
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 23304862206847388}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4322363048711924}
   m_Layer: 0
   m_Name: WhiteCar
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 23711166992339018}
   m_Layer: 0
   m_Name: FrontTires
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 23570101192776450}
   m_Layer: 0
   m_Name: Roof
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

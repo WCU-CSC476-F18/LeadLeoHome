@@ -9,6 +9,7 @@ TagManager:
   - Dam
   - Branch
   - Critter
+  - Car
   layers:
   - Default
   - TransparentFX

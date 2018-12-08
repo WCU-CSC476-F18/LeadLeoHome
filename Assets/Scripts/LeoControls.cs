@@ -297,19 +297,31 @@ public class LeoControls : MonoBehaviour {
         ///////////////////////////////////////////////////////////////
         ///////////  collisions with critters in the fields  //////////
         ///////////////////////////////////////////////////////////////
-        GameObject critter = collision.gameObject;
-        if (critter.tag == "Critter")
+        GameObject obj_hit = collision.gameObject;
+
+        if (obj_hit.tag == "Critter")
         {
-            distractTime = 0.0f;
-            Destroy(critter);
+            distractTime = 0.0f;//reset timer for each time leo is hit
             //now make leo dance for 5s
             distracted = true;
-            bark.UnPause();
+            bark.UnPause();//barking SFX
+        }
+
+        if (obj_hit.tag == "Car")
+        {
+            //kill leo and respawn him at Vector3(166.0f, 0.0f, -1.0f)
+            rb.transform.position = new Vector3(166.0f, 0.0f, -1.0f);
         }
         
     }
 
     //need this to make sure leo doesnt teleport more than once when using triggers
+    private void OnTriggerExit(Collider other)
+    {
+        isTriggered = false;
+    }
+
+    //need this to make sure leo doesnt collide more than once
     private void OnCollisionExit(Collision collision)
     {
         isTriggered = false;
@@ -322,7 +334,7 @@ public class LeoControls : MonoBehaviour {
         switch (level)
         {
             case 1:
-                rb.transform.position = new Vector3(97.0f, 0.0f, -1.0f);
+                rb.transform.position = new Vector3(0.0f, 0.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
 
