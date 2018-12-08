@@ -26,6 +26,12 @@ public class LeoControls : MonoBehaviour {
     //river parts that will be deleted with each branch
     public GameObject r1, r2, r3, r4, r5;
 
+    //bool used to make leo distracted for 5s if hit by a critter
+    bool distracted = false;
+    float distractTime = 0.0f;
+    int danceDirection = 0;
+    AudioSource bark;
+
     //Leo's speed
     public float speed = 0.4f;
 
@@ -33,105 +39,168 @@ public class LeoControls : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+
         rb = GetComponent<Rigidbody>();
-        Physics.gravity = new Vector3(0.0f, 0.0f, 50.0f);
+
+        Physics.gravity = new Vector3(0.0f, 0.0f, 50.0f);//set gravity going into the screen
+
+        //get the bark ready for if leo hits a critter
+        bark = GetComponent<AudioSource>();
+        bark.Play(0);
+        bark.Pause();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        //displaying timer
-        if (gameOver == false)
+        if (distracted)
         {
-            gameTimer += Time.deltaTime;
-
-            s = (int)(gameTimer % 60);
-            m = (int)(gameTimer / 60) % 60;
-
-            int sec = 59 - s;
-            int min = 14 - m;
-
-            string runTime = string.Format("{0:00}:{1:00}", m, s);//format the time nicely
-            string runTimeCountdown = string.Format("{0:00}:{1:00}", min, sec);//format the string to countdown
-
-            runningTime.text = ("Time until Animal Control arrives: " + runTimeCountdown);//set runTime to current run timer
-
-            //timer for the woods level
-            if (woodsDone == false)
+            //count to 5 and meanwhile make leo do some shit
+            distractTime += Time.deltaTime;
+            if (distractTime > 5)
             {
-                woodsTime.text = ("The Woods: " + runTime);
-                woodsSec = s;
-                woodsMin = m;
+                distracted = false;
+                bark.Pause();
             }
-            //timer for the river level
-            if (riverDone == false)
+            if (distractTime % (.25) < 0.02)
             {
-                levelTimer += Time.deltaTime;
-                riverSec = (int)(levelTimer % 60);
-                riverMin = (int)(levelTimer / 60) % 60;
-                riverTime.text = string.Format("The River: {0:00}:{1:00}", riverMin, riverSec);
+                switch (danceDirection)
+                {
+                    case 0:
+                        transform.eulerAngles = new Vector3(0, 0, 90);
+                        danceDirection++;
+                        break;
+                    case 1:
+                        transform.eulerAngles = new Vector3(0, 0, 45);
+                        danceDirection++;
+                        break;
+                    case 2:
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                        danceDirection++;
+                        break;
+                    case 3:
+                        transform.eulerAngles = new Vector3(0, 0, -45);
+                        danceDirection++;
+                        break;
+                    case 4:
+                        transform.eulerAngles = new Vector3(0, 0, -90);
+                        danceDirection++;
+                        break;
+                    case 5:
+                        transform.eulerAngles = new Vector3(0, 0, -135);
+                        danceDirection++;
+                        break;
+                    case 6:
+                        transform.eulerAngles = new Vector3(0, 0, 180);
+                        danceDirection++;
+                        break;
+                    case 7:
+                        transform.eulerAngles = new Vector3(0, 0, 135);
+                        danceDirection = 0;
+                        break;
+                }
             }
-            //timer for the fields level
-            if (fieldsDone == false)
-            {
-                levelTimer += Time.deltaTime;
-                fieldsSec = (int)(levelTimer % 60);
-                fieldsMin = (int)(levelTimer / 60) % 60;
-                fieldsTime.text = string.Format("The Fields: {0:00}:{1:00}", fieldsMin, fieldsSec);
-            }
-            //timer for the highway level
-            if (highwayDone == false)
-            {
-                levelTimer += Time.deltaTime;
-                highwaySec = (int)(levelTimer % 60);
-                highwayMin = (int)(levelTimer / 60) % 60;
-                highwayTime.text = string.Format("The Highway: {0:00}:{1:00}", highwayMin, highwaySec);
-            }
-        }
-        //get user input to make leo move
-        float moveX = Input.GetAxis("Horizontal") * 15;
-        float moveY = Input.GetAxis("Vertical") * 15;
-        Vector3 movement = new Vector3(moveX, moveY, 0.0f);
-        
-        //add user input to Leo's velocity
-        movement.x = moveX;
-        movement.y = moveY;
-        rb.velocity = movement*speed;
 
-        //code to make leo face the direction of movement
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.eulerAngles = new Vector3(0, 0, 90);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else
         {
-            transform.eulerAngles = new Vector3(0, 0, -90);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.eulerAngles = new Vector3(0, 0, 180);
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        if(Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.eulerAngles = new Vector3(0, 0, 135);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.eulerAngles = new Vector3(0, 0, 45);
-        }
-        if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.eulerAngles = new Vector3(0, 0, -135);
-        }
-        if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.eulerAngles = new Vector3(0, 0, -45);
-        }
+            ///////////////////////////////////////////////////////////
+            ///////////////  displaying timer  ////////////////////////
+            ///////////////////////////////////////////////////////////
+            if (gameOver == false)
+            {
+                gameTimer += Time.deltaTime;
 
+                s = (int)(gameTimer % 60);
+                m = (int)(gameTimer / 60) % 60;
+
+                int sec = 59 - s;
+                int min = 14 - m;
+
+                string runTime = string.Format("{0:00}:{1:00}", m, s);//format the time nicely
+                string runTimeCountdown = string.Format("{0:00}:{1:00}", min, sec);//format the string to countdown
+
+                runningTime.text = ("Time until Animal Control arrives: " + runTimeCountdown);//set runTime to current run timer
+
+                //timer for the woods level
+                if (woodsDone == false)
+                {
+                    woodsTime.text = ("The Woods: " + runTime);
+                    woodsSec = s;
+                    woodsMin = m;
+                }
+                //timer for the river level
+                if (riverDone == false)
+                {
+                    levelTimer += Time.deltaTime;
+                    riverSec = (int)(levelTimer % 60);
+                    riverMin = (int)(levelTimer / 60) % 60;
+                    riverTime.text = string.Format("The River: {0:00}:{1:00}", riverMin, riverSec);
+                }
+                //timer for the fields level
+                if (fieldsDone == false)
+                {
+                    levelTimer += Time.deltaTime;
+                    fieldsSec = (int)(levelTimer % 60);
+                    fieldsMin = (int)(levelTimer / 60) % 60;
+                    fieldsTime.text = string.Format("The Fields: {0:00}:{1:00}", fieldsMin, fieldsSec);
+                }
+                //timer for the highway level
+                if (highwayDone == false)
+                {
+                    levelTimer += Time.deltaTime;
+                    highwaySec = (int)(levelTimer % 60);
+                    highwayMin = (int)(levelTimer / 60) % 60;
+                    highwayTime.text = string.Format("The Highway: {0:00}:{1:00}", highwayMin, highwaySec);
+                }
+            }
+
+            //////////////////////////////////////////////////
+            ///////  get user input to make leo move  ////////
+            /////////////////////////////////////////////////
+            float moveX = Input.GetAxis("Horizontal") * 15;
+            float moveY = Input.GetAxis("Vertical") * 15;
+            Vector3 movement = new Vector3(moveX, moveY, 0.0f);
+
+            //add user input to Leo's velocity
+            movement.x = moveX;
+            movement.y = moveY;
+            rb.velocity = movement * speed;
+
+            //code to make leo face the direction of movement
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.eulerAngles = new Vector3(0, 0, 90);
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.eulerAngles = new Vector3(0, 0, -90);
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.eulerAngles = new Vector3(0, 0, 180);
+            }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.eulerAngles = new Vector3(0, 0, 135);
+            }
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.eulerAngles = new Vector3(0, 0, 45);
+            }
+            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.eulerAngles = new Vector3(0, 0, -135);
+            }
+            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.eulerAngles = new Vector3(0, 0, -45);
+            }
+        }
 
     }//end fixedupdate
 
@@ -148,6 +217,9 @@ public class LeoControls : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        //////////////////////////////////////////////////////////////////
+        ///////////////////////  INTERACTIONS  ///////////////////////////
+        //////////////////////////////////////////////////////////////////
         if (isTriggered == false)
         {
             //if leo picked the right path--progress to next area
@@ -216,6 +288,25 @@ public class LeoControls : MonoBehaviour {
                 branch++;//iterate so that leo can pick up the next branch
             }
         }
+        
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        ///////////////////////////////////////////////////////////////
+        ///////////  collisions with critters in the fields  //////////
+        ///////////////////////////////////////////////////////////////
+        GameObject critter = collision.gameObject;
+        if (critter.tag == "Critter")
+        {
+            distractTime = 0.0f;
+            Destroy(critter);
+            //now make leo dance for 5s
+            distracted = true;
+            bark.UnPause();
+        }
+        
     }
 
     //need this to make sure leo doesnt teleport more than once when using triggers
@@ -231,7 +322,7 @@ public class LeoControls : MonoBehaviour {
         switch (level)
         {
             case 1:
-                rb.transform.position = new Vector3(0.0f, 0.0f, -1.0f);
+                rb.transform.position = new Vector3(97.0f, 0.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
 

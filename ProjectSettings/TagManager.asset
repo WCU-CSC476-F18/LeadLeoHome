@@ -8,6 +8,7 @@ TagManager:
   - Apple
   - Dam
   - Branch
+  - Critter
   layers:
   - Default
   - TransparentFX
