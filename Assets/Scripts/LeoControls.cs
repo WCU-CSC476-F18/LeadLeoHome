@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LeoControls : MonoBehaviour {
-
+    
     //used to print the time
     public Text runningTime, woodsTime, riverTime, fieldsTime, highwayTime;
     float gameTimer = 0.0f;//used in Update
@@ -281,7 +281,6 @@ public class LeoControls : MonoBehaviour {
             //DamRiver() function--after the player has placed the branch.
             if (other.gameObject.CompareTag("Branch"))
             {
-                isTriggered = true;
                 //if leo steps on a branch pick it up
                 switch (branch)
                 {
@@ -335,17 +334,14 @@ public class LeoControls : MonoBehaviour {
         }
         
     }
-
-    //need this to make sure leo doesnt teleport more than once when using triggers
     private void OnTriggerExit(Collider other)
     {
         isTriggered = false;
     }
-
     //need this to make sure leo doesnt collide more than once
     private void OnCollisionExit(Collision collision)
     {
-        isTriggered = false;
+        //isTriggered = false;
     }
 
     //handles where to "teleport" leo throughout the whole game
@@ -393,7 +389,6 @@ public class LeoControls : MonoBehaviour {
                 rb.transform.position = new Vector3(0.0f, 90.0f, -1.0f);
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 pp6.SetActive(true);//show paw prints for correct way found
-                isTriggered = false;//just in case
                 break;
 
             case 8:
@@ -403,9 +398,9 @@ public class LeoControls : MonoBehaviour {
                 woodsTime.text = string.Format("The Woods: {0:00}:{1:00}", woodsMin, woodsSec);//set the score
                 riverDone = false;//start running the timer for the river
 
-                isTriggered = false;//since leo technically never stepped off the teleporting trigger
-
                 rb.transform.position = new Vector3(47.0f, 0.0f, -1.0f);
+
+                
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
 
@@ -417,9 +412,8 @@ public class LeoControls : MonoBehaviour {
                 levelTimer = 0.0f;//reset the level timer to 0 to be used for the fieldsTime
                 fieldsDone = false;//start running the timer for the fields
 
-                isTriggered = false;//since leo technically never stepped off the teleporting trigger
-
                 rb.transform.position = new Vector3(97.0f, 0.0f, -1.0f);
+
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
 
@@ -431,9 +425,8 @@ public class LeoControls : MonoBehaviour {
                 levelTimer = 0.0f;//reset the level timer to 0 to be used for the highwayTime
                 highwayDone = false;//start running the timer for the fields
 
-                isTriggered = false;//since leo technically never stepped off the teleporting trigger
-
                 rb.transform.position = new Vector3(166.0f, 0.0f, -1.0f);
+
                 rb.velocity = Vector3.zero;//make sure they dont carry their momentum in the next room
                 break;
 
@@ -446,9 +439,8 @@ public class LeoControls : MonoBehaviour {
 
                 runningTime.text = string.Format("Congrats! You got Leo home in {0:00}:{1:00}!", m, s);
 
-                isTriggered = false;//since leo technically never stepped off the teleporting trigger
-
                 rb.transform.position = new Vector3(216.0f, 0.0f, -1.0f);
+
                 rb.velocity = Vector3.zero;
                 break;
 
