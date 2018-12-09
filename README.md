@@ -6,6 +6,8 @@ patterns and character interactions. There are 4 levels that the player must gui
 If the player fails to lead him home within the allotted time, Animal Control will swoop in and take
 Leo to the pound. Therefore you must try to complete each level as fast as you can!
 
+Preliminary Release Link: http://taz.cs.wcupa.edu/~el829072/Lead%20Leo%20Home!/
+
 ----------
 Controls:
 ----------
